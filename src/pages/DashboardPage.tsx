@@ -1,23 +1,15 @@
-/**
- * Dashboard Page
- * Menampilkan temperature monitoring dengan auto-polling
- */
-
 import { useState } from 'react';
 import {
   Box,
   Heading,
   SimpleGrid,
+  HStack,
+  Badge,
+  Text,
   Alert,
   AlertIcon,
   AlertTitle,
   AlertDescription,
-  Spinner,
-  Center,
-  Text,
-  HStack,
-  Badge,
-  useColorModeValue,
 } from '@chakra-ui/react';
 import { RepeatIcon } from '@chakra-ui/icons';
 import type { TemperatureWithStatus } from '../types';
@@ -25,6 +17,9 @@ import { fetchTemperatures } from '../services/api';
 import { getTemperatureStatus } from '../utils/temperature';
 import { usePolling } from '../hooks/usePolling';
 import { CardRoomTemperature } from '../components/CardRoomTemperature';
+import { LoadingState } from '../components/LoadingState';
+import { ErrorState } from '../components/ErrorState';
+import { EmptyState } from '../components/EmptyState';
 
 const POLLING_INTERVAL = 10000; // 10 seconds
 
@@ -33,8 +28,6 @@ export function DashboardPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [lastUpdate, setLastUpdate] = useState<Date>(new Date());
-
-  const textColor = useColorModeValue('gray.600', 'gray.400');
 
   const loadTemperatures = async () => {
     try {
@@ -58,42 +51,21 @@ export function DashboardPage() {
 
   // Loading state
   if (loading) {
-    return (
-      <Box px={{ base: 3, md: 6, lg: 8, xl: 10 }} py={6}>
-        <Center h="60vh">
-          <Box textAlign="center">
-            <Spinner size="xl" color="blue.500" thickness="4px" mb={4} />
-            <Text color={textColor}>Loading temperature data...</Text>
-          </Box>
-        </Center>
-      </Box>
-    );
+    return <LoadingState message="Loading temperature data..." />;
   }
 
   // Error state
   if (error) {
-    return (
-      <Box px={{ base: 3, md: 6, lg: 8, xl: 10 }} py={6}>
-        <Alert status="error" borderRadius="md">
-          <AlertIcon />
-          <Box>
-            <AlertTitle>Error Loading Data</AlertTitle>
-            <AlertDescription>{error}</AlertDescription>
-          </Box>
-        </Alert>
-      </Box>
-    );
+    return <ErrorState message={error} onRetry={loadTemperatures} />;
   }
 
   // Empty state
   if (rooms.length === 0) {
     return (
-      <Box px={{ base: 3, md: 6, lg: 8, xl: 10 }} py={6}>
-        <Alert status="info" borderRadius="md">
-          <AlertIcon />
-          <AlertTitle>No Rooms Found</AlertTitle>
-        </Alert>
-      </Box>
+      <EmptyState
+        title="No Rooms Found"
+        description="There are no temperature monitoring rooms configured yet."
+      />
     );
   }
 

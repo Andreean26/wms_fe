@@ -1,8 +1,3 @@
-/**
- * Main App Component
- * Setup routing dengan React Router
- */
-
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 import theme from './theme';

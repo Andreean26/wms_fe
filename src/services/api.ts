@@ -1,8 +1,3 @@
-/**
- * Mock API Service Layer
- * Simulasi API calls dengan mock data
- */
-
 import type { TemperatureRoom, InventoryItem, Location } from '../types';
 
 // ==================== Mock Data ====================

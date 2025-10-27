@@ -1,8 +1,3 @@
-/**
- * Chakra UI Theme Configuration
- * Setup untuk dark mode support
- */
-
 import { extendTheme, type ThemeConfig } from '@chakra-ui/react';
 
 const config: ThemeConfig = {

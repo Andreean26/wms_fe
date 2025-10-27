@@ -22,7 +22,12 @@ const menuItems: MenuItem[] = [
   },
 ];
 
-export function Sidebar() {
+type SidebarProps = {
+  onNavigate?: () => void;
+  variant?: 'sidebar' | 'drawer';
+};
+
+export function Sidebar({ onNavigate, variant = 'sidebar' }: SidebarProps) {
   const location = useLocation();
   const bgColor = useColorModeValue('white', 'gray.800');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
@@ -34,14 +39,14 @@ export function Sidebar() {
   return (
     <Box
       as="aside"
-      w="250px"
-      minH="calc(100vh - 60px)"
+      w={variant === 'drawer' ? 'full' : '250px'}
+      minH={variant === 'drawer' ? '100vh' : 'calc(100vh - 60px)'}
       bg={bgColor}
-      borderRight="1px solid"
+      borderRight={variant === 'drawer' ? 'none' : '1px solid'}
       borderColor={borderColor}
       p={4}
-      position="sticky"
-      top="60px"
+      position={variant === 'drawer' ? 'relative' : 'sticky'}
+      top={variant === 'drawer' ? '0' : '60px'}
       left={0}
     >
       <VStack align="stretch" spacing={2}>
@@ -53,6 +58,7 @@ export function Sidebar() {
               key={item.path}
               as={RouterLink}
               to={item.path}
+              onClick={onNavigate}
               _hover={{ textDecoration: 'none' }}
             >
               <HStack

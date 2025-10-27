@@ -1,8 +1,3 @@
-/**
- * Temperature Status Unit Tests
- * Test untuk logic Normal/Abnormal temperature
- */
-
 import { describe, it, expect } from 'vitest';
 import { getTemperatureStatus } from '../utils/temperature';
 

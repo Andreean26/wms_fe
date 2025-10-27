@@ -1,8 +1,3 @@
-/**
- * Zustand Store - Inventory Management
- * Global state untuk inventory items
- */
-
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { InventoryItem } from '../types';

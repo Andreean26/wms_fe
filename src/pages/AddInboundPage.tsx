@@ -1,8 +1,3 @@
-/**
- * Add Inbound Page
- * Form untuk menambahkan inventory baru dengan validasi
- */
-
 import { useState } from 'react';
 import {
   Box,
@@ -40,24 +35,26 @@ const initialFormData: InboundFormData = {
 
 export function AddInboundPage() {
   const navigate = useNavigate();
-  const toast = useToast();
+  const toast = useToast({
+    position: 'top',
+    containerStyle: {
+      marginTop: '77px',
+    },
+  });
   const { addItem } = useInventoryStore();
   
   const [formData, setFormData] = useState<InboundFormData>(initialFormData);
   const [errors, setErrors] = useState<InboundFormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  // Fetch locations
   const { data: locations, status, refetch } = useFetch<Location[]>(fetchLocations);
 
+  // Fetch once on mount; including `refetch` to satisfy hooks rule
   useEffect(() => {
     refetch();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [refetch]);
 
   const handleChange = (field: keyof InboundFormData, value: string | number) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
-    // Clear error saat user mulai input
     if (errors[field]) {
       setErrors((prev) => ({ ...prev, [field]: undefined }));
     }
@@ -106,6 +103,7 @@ export function AddInboundPage() {
         status: 'error',
         duration: 3000,
         isClosable: true,
+        position: 'top',
       });
       return;
     }
@@ -131,6 +129,7 @@ export function AddInboundPage() {
       status: 'success',
       duration: 3000,
       isClosable: true,
+      position: 'top',
     });
 
     setIsSubmitting(false);

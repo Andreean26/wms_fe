@@ -1,8 +1,3 @@
-/**
- * Date Utility Functions
- * Untuk validasi dan kalkulasi tanggal expiry
- */
-
 import { differenceInDays, isAfter, isBefore, startOfToday, parseISO } from 'date-fns';
 
 /**

@@ -1,8 +1,3 @@
-/**
- * Temperature Utility Functions
- * Logic untuk menentukan status suhu ruangan
- */
-
 import type { TemperatureStatus } from '../types';
 
 const TEMP_MIN = -20;

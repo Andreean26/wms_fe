@@ -1,8 +1,3 @@
-/**
- * Inventory List Page
- * Menampilkan inventory dengan search dan highlight expiry
- */
-
 import { useEffect, useState } from 'react';
 import {
   Box,
@@ -11,8 +6,6 @@ import {
   AlertIcon,
   AlertTitle,
   AlertDescription,
-  Spinner,
-  Center,
   Text,
   VStack,
   Button,
@@ -26,6 +19,8 @@ import { useInventoryStore } from '../store/inventoryStore';
 import { filterInventoryBySearch } from '../utils/search';
 import { SearchInput } from '../components/SearchInput';
 import { TableInventory } from '../components/TableInventory';
+import { LoadingState } from '../components/LoadingState';
+import { ErrorState } from '../components/ErrorState';
 
 export function InventoryListPage() {
   const navigate = useNavigate();
@@ -85,31 +80,12 @@ export function InventoryListPage() {
 
   // Loading state
   if (loading) {
-    return (
-      <Box px={{ base: 3, md: 6, lg: 8, xl: 10 }} py={6}>
-        <Center h="60vh">
-          <Box textAlign="center">
-            <Spinner size="xl" color="blue.500" thickness="4px" mb={4} />
-            <Text color={textColor}>Loading inventory...</Text>
-          </Box>
-        </Center>
-      </Box>
-    );
+    return <LoadingState message="Loading inventory..." />;
   }
 
   // Error state
   if (error) {
-    return (
-      <Box px={{ base: 3, md: 6, lg: 8, xl: 10 }} py={6}>
-        <Alert status="error" borderRadius="md">
-          <AlertIcon />
-          <Box>
-            <AlertTitle>Error Loading Data</AlertTitle>
-            <AlertDescription>{error}</AlertDescription>
-          </Box>
-        </Alert>
-      </Box>
-    );
+    return <ErrorState message={error} />;
   }
 
   return (
@@ -142,7 +118,7 @@ export function InventoryListPage() {
             <AlertIcon />
             <AlertTitle>No Results</AlertTitle>
             <AlertDescription>
-              No items match your search query "{searchQuery}"
+              No items match your search input "{searchQuery}"
             </AlertDescription>
           </Alert>
         ) : (

@@ -1,10 +1,3 @@
-/**
- * WMS Cold Storage - Type Definitions
- * Strongly-typed contracts untuk semua data structures
- */
-
-// ==================== Temperature & Room ====================
-
 export interface TemperatureRoom {
   room_id: string;
   temperature: number;
