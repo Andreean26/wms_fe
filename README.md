@@ -13,6 +13,7 @@
 
 - [Overview](#-overview)
 - [Features](#-features)
+- [Screenshots](#-screenshots)
 - [Tech Stack](#-tech-stack)
 - [Project Structure](#-project-structure)
 - [Getting Started](#-getting-started)
@@ -24,11 +25,10 @@
 
 ## 🎯 Overview
 
-      // Remove tseslint.configs.recommended and replace with this
+  
+Aplikasi web untuk memantau suhu ruang cold storage dan mengelola inventory barang yang disimpan. Dibangun dengan **React 18+**, **TypeScript strict mode**, dan **Chakra UI** untuk memberikan pengalaman yang clean, modular, dan type-safe.     
 
-Aplikasi web untuk memantau suhu ruang cold storage dan mengelola inventory barang yang disimpan. Dibangun dengan **React 18+**, **TypeScript strict mode**, dan **Chakra UI** untuk memberikan pengalaman yang clean, modular, dan type-safe.      tseslint.configs.recommendedTypeChecked,
 
-      // Alternatively, use this for stricter rules
 
 **Key Capabilities:**      tseslint.configs.strictTypeChecked,
 
@@ -74,7 +74,33 @@ Aplikasi web untuk memantau suhu ruang cold storage dan mengelola inventory bara
 
 ---
 
-## 🛠 Tech Stack
+## � Screenshots
+
+> Cuplikan antarmuka utama aplikasi.
+
+- Dashboard
+
+  ![Dashboard](<src/assets/dashboard.jpg>)
+
+- Inventory List
+
+  ![Inventory List](<src/assets/inventory list.jpg>)
+
+- Add New Item
+
+  ![Add New Item](<src/assets/add new item.jpg>)
+
+- Toast Notification
+
+  ![Toast](<src/assets/toast.jpg>)
+
+- Dark Mode
+
+  ![Dark Mode](<src/assets/darkmode.jpg>)
+
+---
+
+## �🛠 Tech Stack
 
 | Category | Technology | Version |
 |----------|-----------|---------|
