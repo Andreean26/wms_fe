@@ -32,21 +32,15 @@ Aplikasi web untuk memantau suhu ruang cold storage dan mengelola inventory bara
 
 **Key Capabilities:**      tseslint.configs.strictTypeChecked,
 
-- ✅ Real-time temperature monitoring dengan auto-polling (10 detik)      // Optionally, add this for stylistic rules
+- ✅ Real-time temperature monitoring dengan auto-polling (10 detik)     
 
 - ✅ Inventory management dengan search & near-expiry highlighting      tseslint.configs.stylisticTypeChecked,
 
 - ✅ Form validation untuk inbound items
 
-- ✅ Persistent storage dengan localStorage      // Other configs...
+- ✅ Persistent storage dengan localStorage      
 
-- ✅ Fully typed dengan TypeScript (no `any`)    ],
-
-    languageOptions: {
-
----      parserOptions: {
-
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+- ✅ Fully typed dengan TypeScript (no `any`)    
 
 ## ✨ Features
 
@@ -255,7 +249,7 @@ File hasil build akan tersimpan di folder `dist/`
    - Badge "Good" untuk barang yang masih aman
 4. Klik tombol **"Add Item"** untuk tambah barang baru
 
-### 3. ➕ Tambah Barang Baru (Add Inbound)
+### 3. ➕ Tambah Barang Baru (Add New Items)
 1. Klik tombol **"Add Item"** di halaman Inventory
 2. Isi form dengan data:
    - **SKU** - Kode unik produk
@@ -505,125 +499,19 @@ export { EmptyState } from './EmptyState';
 
 ---
 
-## 🎨 Best Practices Implemented
-
-### Code Quality
-- ✅ **Strict TypeScript** - No `any` types, full type safety
-- ✅ **ESLint** - Code quality enforcement
-- ✅ **Component Composition** - Small, focused components
-- ✅ **Custom Hooks** - Extract reusable logic
-- ✅ **Barrel Exports** - Clean import statements
-
-### Performance
-- ✅ **Lazy Loading** - React Router code splitting (jika diperlukan)
-- ✅ **Memoization** - Prevent unnecessary re-renders
-- ✅ **Tree Shaking** - Import hanya yang digunakan
-
-### UX/UI
-- ✅ **Loading States** - Clear feedback saat data loading
-- ✅ **Error Handling** - User-friendly error messages
-- ✅ **Empty States** - Guide users when no data
-- ✅ **Dark Mode** - Eye comfort & modern UX
-- ✅ **Responsive Design** - Works on all screen sizes
-
-### Maintainability
-- ✅ **Consistent Naming** - Follow conventions
-- ✅ **Comments** - Document complex logic
-- ✅ **Folder Structure** - Organized & scalable
-- ✅ **Type Definitions** - Centralized dalam `types/`
-
----
-
-## 🎯 Future Improvements
-
-Potential enhancements untuk aplikasi ini:
-
-1. **Real API Integration**
-   - Replace mock API dengan real backend
-   - Add authentication & authorization
-   - Implement proper error handling
-
-2. **Advanced Features**
-   - Export inventory to Excel/CSV
-   - Print barcode labels
-   - Email notifications untuk near-expiry items
-   - Advanced filtering & sorting
-
-3. **Testing**
-   - Increase test coverage (target: 80%+)
-   - Add integration tests
-   - Add E2E tests dengan Playwright/Cypress
-
-4. **Performance**
-   - Implement virtualization untuk large tables
-   - Add pagination untuk inventory list
-   - Optimize bundle size
-
-5. **DevOps**
-   - CI/CD pipeline dengan GitHub Actions
-   - Docker containerization
-   - Deploy ke Vercel/Netlify
-
----
-
 ## 📝 License
 
-This project is created for educational purposes.
+This project is created for Company Test purposes.
 
 ---
 
 ## 👨‍💻 Author
 
-**Adam** - WMS Cold Storage Dashboard
+**AdamAndreean** - WMS Cold Storage Dashboard
 
 ---
 
-## 🙏 Acknowledgments
 
-- [React Documentation](https://react.dev/)
-- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
-- [Chakra UI](https://chakra-ui.com/)
-- [Zustand](https://github.com/pmndrs/zustand)
-- [Vite](https://vitejs.dev/)
-
-- ✅ Dashboard melakukan polling dan memperbarui suhu setiap 10 detik
-- ✅ Status warna/badge jelas untuk Normal/Abnormal
-- ✅ Inventory dapat di-search oleh SKU/nama
-- ✅ Barang dengan expiry ≤ 30 hari ter-highlight
-- ✅ Validasi form inbound berjalan (wajib, qty>0, expiry>=hari ini)
-- ✅ TypeScript strict tanpa 'any' sembarangan
-- ✅ Struktur folder rapi & komponen/hook modular
-- ✅ Minimal 1 unit test lulus
-
----
-
-## 🚀 Bonus Features Implemented
-
-- ✅ **localStorage persistence** untuk inventory data
-- ✅ **Toast notifications** saat tambah barang berhasil
-- ✅ **Responsive design** dengan Chakra UI
-- ✅ **Keyboard accessible** components
-- ✅ **Empty & error states** handling
-
----
-
-## 📝 Notes
-
-### Mock Data
-Aplikasi menggunakan mock data yang di-hardcode di `src/services/api.ts`. Untuk production:
-1. Replace mock functions dengan real API calls
-2. Add environment variables untuk API base URL
-3. Implement proper error handling & retry logic
-
-### Future Enhancements
-- [ ] Dark mode toggle
-- [ ] Export inventory to CSV/Excel
-- [ ] Advanced filtering (by location, expiry range)
-- [ ] User authentication & authorization
-- [ ] Real-time notifications dengan WebSocket
-- [ ] Pagination untuk large inventory
-
----
 
 ## 👨‍💻 Developer
 
@@ -636,4 +524,4 @@ Built with ❤️ for WMS Cold Storage monitoring needs.
 
 ## 📄 License
 
-MIT License - feel free to use this project for learning purposes.
+MIT License - this is for company test.
