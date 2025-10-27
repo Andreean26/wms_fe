@@ -30,7 +30,7 @@ Aplikasi web untuk memantau suhu ruang cold storage dan mengelola inventory bara
 
 
 
-**Key Capabilities:**      tseslint.configs.strictTypeChecked,
+**Key Capabilities:**     
 
 - ✅ Real-time temperature monitoring dengan auto-polling (10 detik)     
 
