@@ -1,8 +1,3 @@
-/**
- * Dark Mode Toggle Component
- * Button untuk switch antara light/dark mode
- */
-
 import { IconButton, useColorMode, useColorModeValue, Tooltip } from '@chakra-ui/react';
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
 

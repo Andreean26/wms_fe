@@ -54,9 +54,6 @@ const MOCK_LOCATIONS: Location[] = [
 
 // ==================== API Functions ====================
 
-/**
- * Simulate network delay
- */
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 /**
@@ -69,7 +66,7 @@ export async function fetchTemperatures(): Promise<TemperatureRoom[]> {
   // untuk membuat data random suhu
   return MOCK_TEMPERATURES.map((room) => ({
     ...room,
-    temperature: room.temperature + (Math.random() - 0.5) * 2, // ±1 degree variation
+    temperature: room.temperature + (Math.random() - 0.5) * 2, // ±1 derajat variasi
   }));
 }
 

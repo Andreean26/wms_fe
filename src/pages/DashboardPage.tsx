@@ -46,20 +46,16 @@ export function DashboardPage() {
     }
   };
 
-  // Auto-polling setiap 10 detik
   usePolling(loadTemperatures, { interval: POLLING_INTERVAL });
 
-  // Loading state
   if (loading) {
     return <LoadingState message="Loading temperature data..." />;
   }
 
-  // Error state
   if (error) {
     return <ErrorState message={error} onRetry={loadTemperatures} />;
   }
 
-  // Empty state
   if (rooms.length === 0) {
     return (
       <EmptyState

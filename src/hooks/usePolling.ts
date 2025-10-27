@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
 
 interface UsePollingOptions {
-  interval: number; // milliseconds
-  enabled?: boolean; // allow pause/resume
+  interval: number;
+  enabled?: boolean; 
 }
 
 export function usePolling(
@@ -20,15 +20,12 @@ export function usePolling(
   useEffect(() => {
     if (!enabled) return;
 
-    // Execute immediately on mount
     savedCallback.current();
 
-    // Setup interval
     const intervalId = setInterval(() => {
       savedCallback.current();
     }, interval);
 
-    // Cleanup on unmount
     return () => {
       clearInterval(intervalId);
     };

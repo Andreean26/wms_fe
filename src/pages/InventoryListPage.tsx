@@ -36,24 +36,15 @@ export function InventoryListPage() {
     const loadInventory = async () => {
       try {
         const data = await fetchInventory();
-        
-        // Jika store masih kosong, set dari API
-        // Jika sudah ada data di store, keep store data (untuk preserve user-added items)
         if (storeItems.length === 0) {
           setItems(data);
         }
-        // Jika ada items di store, merge dan remove duplicates
         else {
-          // Create unique key untuk detect duplicates
           const uniqueItems = new Map<string, typeof data[0]>();
-          
-          // Add existing store items first
           storeItems.forEach(item => {
             const key = `${item.sku}-${item.batch}-${item.location}`;
             uniqueItems.set(key, item);
           });
-          
-          // Add API items only if not already exists
           data.forEach(item => {
             const key = `${item.sku}-${item.batch}-${item.location}`;
             if (!uniqueItems.has(key)) {
@@ -72,18 +63,15 @@ export function InventoryListPage() {
     };
 
     loadInventory();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Load once on mount
+   
+  }, []); 
 
-  // Filter berdasarkan search
   const filteredItems = filterInventoryBySearch(storeItems, searchQuery);
 
-  // Loading state
   if (loading) {
     return <LoadingState message="Loading inventory..." />;
   }
 
-  // Error state
   if (error) {
     return <ErrorState message={error} />;
   }

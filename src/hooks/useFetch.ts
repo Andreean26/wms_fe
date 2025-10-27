@@ -5,9 +5,6 @@ interface UseFetchResult<T> extends FetchState<T> {
   refetch: () => Promise<void>;
 }
 
-/**
- * Generic fetch hook dengan proper state management
- */
 export function useFetch<T>(
   fetchFn: () => Promise<T>
 ): UseFetchResult<T> {

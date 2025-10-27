@@ -48,7 +48,6 @@ export function AddInboundPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { data: locations, status, refetch } = useFetch<Location[]>(fetchLocations);
 
-  // Fetch once on mount; including `refetch` to satisfy hooks rule
   useEffect(() => {
     refetch();
   }, [refetch]);
@@ -110,10 +109,8 @@ export function AddInboundPage() {
 
     setIsSubmitting(true);
 
-    // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 500));
 
-    // Add to store
     addItem({
       sku: formData.sku,
       name: formData.name,
